@@ -4,44 +4,89 @@ import Hero from '../components/Hero.astro'
 import Feature from '../components/Feature.astro'
 import Counter from '../components/Counter.astro'
 import ContentMedia from '../components/ContentMedia.astro'
+import Card from '../components/Card.astro'
+
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const projects = (await getCollection("projects")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const last_posts = posts.slice(0, 6);
+
+const last_projects = projects.slice(0, 3);
 ---
 
 <DefaultLayout title="Home">
+
   <Hero />
-  <section class="my-64">
+
+  <section class="my-5">
     <div class="container">
-      <h2 class="mb-16 text-6xl">Features</h2>
+      <h2 class="mb-7 mx-auto pl-7 italic text-2xl">Hey there👋</h2>
       <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
-        <Feature icon="mdi:tailwind" title="Tailwind CSS">
-          Use the power of Tailwind to greatly improve your productivity and enhance your developer workflow.
-        </Feature>
-        <Feature icon="mdi:wheelchair-accessibility" title="a11y Components">
-          17 components and counting, all tried and tested for the most optimal accessible experience for your visitors.
-        </Feature>
-        <Feature icon="mdi:looks" title="Prettier">
-          Less worry about formatting your code, let the Astro Prettier integration do the heavy lifting.
-        </Feature>
-        <Feature icon="mdi:eslint" title="ESLint">
-          Lint your code with strict a11y settings to ensure you stay on track with the WCAG standards.
-        </Feature>
-        <Feature icon="mdi:book-open-page-variant" title="Blog">
-          This theme comes with a fully integrated blog, dynamic pages and SEO optimization.
-        </Feature>
-        <Feature icon="mdi:language-markdown" title="Markdown & MDX">
-          Easily use .md and .mdx pages to build your websites or use it with Netlify CMS.
-        </Feature>
-        <Feature icon="mdi:theme-light-dark" title="Dark mode">
-          Fully integrated Dark mode gives your users the choice for their favorite viewing mode.
-        </Feature>
-        <Feature icon="mdi:cog" title="Design System">
-          The theme offers some very handy utilities to help you build your website faster.
-        </Feature>
-        <Feature icon="mdi:lighthouse" title="Lighthouse Scores">
-          Excellent lighthouse scores means your website will load faster and get better SEO rankings.
-        </Feature>
+        <section class="relative pr-4 lg:col-span-3 md:mb-20">
+          <svg class="absolute h-full w-full overflow-visible">
+            <defs>
+              <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style={{ stopColor: "#6b21a8", stopOpacity: 1 }}
+                ></stop>
+                <stop offset="100%" style={{ stopColor: "#e879f9", stopOpacity: 1 }}
+                ></stop>
+              </linearGradient>
+            </defs>
+            <path
+              id="border-path"
+              fill="none"
+              stroke="url(#gradient)"
+              stroke-width="4"></path>
+          </svg>
+          <p
+            id="anim-p"
+            class="text-main px-5 p-5 text-white text-lg md:text-xl mx-auto mb-20"
+          >
+            You've stumbled upon <span class="font-bold text-accent">Richard's</span
+            > little corner of the internet, where creativity runs rampant and
+            normal is just a setting on a washing machine.<br /><br />
+             Stick around, explore the digital masterpieces, and enjoy the
+            occasional artistic shenanigans. It's more fun than you'd think!<br
+            /><br />
+             Delight in the unpredictable artistic shenanigans that burst forth from
+            the canvas of this digital universe. Here, every visit is an adventure,
+            every glance an exploration. Dive in, the pixels are warm!<br /><br />
+             This site is just my latest attempt at an online presence. After
+            considering dropping my old site and starting again I decided to just
+            continue anew here and keep my legacy site live. So here goes...
+          </p>
+        </section>
+        <section >
+          {
+            last_posts.map((post) => (
+              <Card 
+                title={post.data.title}
+                desc={post.data.description}
+                url={"/blog/" + post.slug}
+                target="_self"
+                badge={post.data.badge}
+                img={post.data.heroImage}
+                pub_date={post.data.pubDate.toDateString()}
+                tags={post.data.tags}
+              />
+            ))
+          }
+
+        </section>
+
+    
+
       </div>
     </div>
   </section>
+
   <ContentMedia imgSrc="/accessible-components.webp">
     <h2>Accessible Components</h2>
     <p class="text-2xl">
@@ -51,6 +96,7 @@ import ContentMedia from '../components/ContentMedia.astro'
       >. They'll get you up and running in building an accessible solution for your visitors.
     </p>
   </ContentMedia>
+  
   <ContentMedia imgSrc="/wcag-compliant.webp" reverseImg={true}>
     <h2>WCAG 2.1 AA Compliant</h2>
     <p class="text-2xl">
@@ -71,3 +117,38 @@ import ContentMedia from '../components/ContentMedia.astro'
     </div>
   </section>
 </DefaultLayout>
+<style>
+  #border-path {
+    animation: draw 1s forwards 1s ease-out;
+  }
+
+  @keyframes draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+</style>
+
+<script>
+  function updatePath() {
+    const textMain = document.querySelector("#anim-p") as HTMLElement;
+    const path = document.querySelector("#border-path") as SVGPathElement;
+
+    if (textMain && path) {
+      path.setAttribute(
+        "d",
+        `M0,0 V${textMain.offsetHeight} H${textMain.offsetWidth} v${
+          textMain.offsetHeight / 6
+        }`
+      );
+      const pathLength = path.getTotalLength();
+
+      path.style.strokeDasharray = pathLength.toString();
+      path.style.strokeDashoffset = pathLength.toString();
+    }
+  }
+  // Update the path when the page loads
+  window.addEventListener("DOMContentLoaded", updatePath);
+  // Update the path when the window is resized
+  window.addEventListener("resize", updatePath);
+</script>

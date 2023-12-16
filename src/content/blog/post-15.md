@@ -3,7 +3,7 @@ title: First mdx file
 author: Richard Noake
 description: Test development of mdx files.
 pubDate: Jun 01 2023
-heroImage: '/assets/activity.svg'
+heroImage: '/assets/img/activity.svg'
 badge: Development
 has_link: false
 custom_link_label: ""

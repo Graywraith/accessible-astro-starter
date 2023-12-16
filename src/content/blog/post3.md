@@ -2,7 +2,7 @@
 title: "A contentless test!"
 description: "Re-developing my website - test three."
 pubDate: "Feb 5 2023"
-heroImage: "/assets/tag.svg"
+heroImage: "/assets/img/tag.svg"
 badge: "Development"
 has_link: false
 custom_link_label: ""

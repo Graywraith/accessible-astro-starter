@@ -3,7 +3,7 @@ title: AMOC
 author: Richard Noake
 description: The start of a series discussing the Atlantic Meridional Overturning Circulation (AMOC)
 pubDate: Jul 31 2023
-heroImage: /assets/cloud-1.svg
+heroImage: /assets/img/cloud-1.svg
 badge: Climate
 has_link: false
 custom_link_label: ""

@@ -3,7 +3,7 @@ title: AOMC Global Pathways
 author: Richard Noake
 description: A more detailed look at the AOMC paths
 pubDate: Aug 16 2023
-heroImage: /assets/cloud-1.svg
+heroImage: /assets/img/cloud-1.svg
 badge: AMOC
 tags: ["Climate Change","AMOC","Gulf Stream"]
 custom_link_label: "Learn more:"

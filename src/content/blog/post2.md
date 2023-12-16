@@ -2,7 +2,7 @@
 title: "Testing image serving"
 description: "My second Markdown based blog for testing the automatic build from Markdown to HTML."
 pubDate: "Jan 19 2023"
-heroImage: "/assets/logo.svg"
+heroImage: "/assets/img/logo.svg"
 has_link: false
 custom_link_label: ""
 custom_link: ""

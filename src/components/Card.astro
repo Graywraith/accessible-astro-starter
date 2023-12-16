@@ -1,0 +1,49 @@
+---
+const { title, img, desc, url, badge, tags, pub_date,target = '_self'} = Astro.props;
+
+if (typeof tags !== 'undefined')
+    var tagsarr = tags.slice(1,4)
+else
+  tagsarr = new Array()
+
+// import the Image component and the image
+import { Image } from 'astro:assets';
+
+import type { ImageMetadata } from "astro"
+const images = import.meta.glob('/src/assets/*.{webp,png,svg}')
+const imageSrc = await images[img]() as any
+
+---
+
+<div class="p-6 border border-gray-200 bg-slate-600 justify-stretch w-full h-full
+    rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 
+    transition ease-in-out hover:scale-[105%] card relative
+    hover:bg-gradient-to-r from-slate-400 to-slate-600 hover:shadow-2xl">
+  
+    <Image src={imageSrc} alt={title} width={70} height={70} />
+    <a href={url}>
+        <h5 class="m-2 text-2xl font-semibold tracking-tight text-gray-300 dark:text-white">{title}</h5>
+        {badge && <div class="badge badge-secondary">{badge} </div>} <span class="text-gray-400 text-xs float-right hover:text-slate-800">&NonBreakingSpace;Published: {pub_date}</span>
+    </a>
+   
+    <p class="pb-3 font-normal text-slate-300 dark:text-gray-400">{desc}</p>
+
+    <div class="absolute inset-x-0 bottom-0 flex justify-center pb-2">
+        {tagsarr.map((tag) => ( 
+            <span class="badge badge-outline mr-1">{tag}</span>
+        ))}
+    </div>
+</div>
+
+<style type="text/css">
+    .card:is(:hover, :focus-within) {
+		background-position: 0;
+        //background-image: linear-gradient(var(--gray-gradient)) no-repeat;
+		/* background-image: linear-gradient(
+      180deg, rgb(200,200,200),rgb(150,150,150) 10%,rgb(96, 93, 93) 40%); */
+	}
+
+	.card:is(:hover, :focus-within) h2 {
+		color: rgb(var(--accent-lght));
+	}
+</style>
