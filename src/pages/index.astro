@@ -4,7 +4,8 @@ import Hero from '../components/Hero.astro'
 import Feature from '../components/Feature.astro'
 import Counter from '../components/Counter.astro'
 import ContentMedia from '../components/ContentMedia.astro'
-import Card from '../components/Card.astro'
+
+import Card from '../components/Card2.astro'
 
 import { getCollection } from "astro:content";
 
@@ -16,7 +17,7 @@ const projects = (await getCollection("projects")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
-const last_posts = posts.slice(0, 6);
+const last_posts = posts.slice(0, 4);
 
 const last_projects = projects.slice(0, 3);
 ---
@@ -63,27 +64,53 @@ const last_projects = projects.slice(0, 3);
             continue anew here and keep my legacy site live. So here goes...
           </p>
         </section>
-        <section >
-          {
-            last_posts.map((post) => (
-              <Card 
-                title={post.data.title}
-                desc={post.data.description}
-                url={"/blog/" + post.slug}
-                target="_self"
-                badge={post.data.badge}
-                img={post.data.heroImage}
-                pub_date={post.data.pubDate.toDateString()}
-                tags={post.data.tags}
-              />
-            ))
-          }
-
-        </section>
-
-    
-
       </div>
+    </div>
+  </section>
+
+  <section class="container">
+    <h2 class="mb-7 mx-auto pl-7 italic text-2xl">Latest Posts</h2>
+
+    <div class="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-4">
+        {
+          last_posts.map((post) => (
+            <div>
+            <Card 
+              title={post.data.title}
+              desc={post.data.description}
+              url={"/blog/" + post.slug}
+              target="_self"
+              badge={post.data.badge}
+              img={post.data.image}
+              pub_date={post.data.pubDate.toDateString()}
+              tags={post.data.tags}
+            />
+          </div>
+          ))
+        }
+    </div>
+  </section>
+
+  <section class="container">
+    <h2 class="mb-7 mx-auto pl-7 italic text-2xl">A few projects</h2>
+
+    <div class="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-4">
+        {
+          last_projects.map((project) => (
+            <div>
+            <Card 
+              title={project.data.title}
+              desc={project.data.description}
+              url={"/blog/" + project.slug}
+              target="_self"
+              badge={project.data.badge}
+              img={project.data.image}
+              pub_date={project.data.pubDate.toDateString()}
+              tags={project.data.tags}
+            />
+          </div>
+          ))
+        }
     </div>
   </section>
 
@@ -117,6 +144,7 @@ const last_projects = projects.slice(0, 3);
     </div>
   </section>
 </DefaultLayout>
+
 <style>
   #border-path {
     animation: draw 1s forwards 1s ease-out;
