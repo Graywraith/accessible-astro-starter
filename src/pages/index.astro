@@ -7,9 +7,9 @@ import ContentMedia from '../components/ContentMedia.astro'
 
 import Card from '../components/Card2.astro'
 
-import { getCollection } from "astro:content";
+import { getCollection } from "astro:content"
 
-const posts = (await getCollection("blog")).sort(
+const posts = (await getCollection("posts")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
@@ -78,7 +78,7 @@ const last_projects = projects.slice(0, 4);
             <Card 
               title={post.data.title}
               desc={post.data.description}
-              url={"/blog/" + post.slug}
+              url={'/posts/' + post.slug}
               target="_self"
               badge={post.data.badge}
               img={post.data.image}

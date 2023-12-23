@@ -7,10 +7,10 @@ import Footer from '../components/Footer.astro'
 
 const {
   title = 'Astro',
-  description = 'A starter project with accessibility features using Astro static site builder. Contains accessible landmarks, skip links, a dark mode color scheme, better focus outline and keyboard menu navigation.',
+  description = 'Richards latest online profile.',
   url,
   image = '/social-preview-image.png',
-  author = 'Mark Teekman',
+  author = 'Richard Noake',
 } = Astro.props
 ---
 
@@ -25,7 +25,7 @@ const {
 
     <SiteMeta
       title={title}
-      description={description.substring(0, 100)}
+      description={description.substring(0, 10)}
       url={Astro.site
         ? `${Astro.site}/${title.toLowerCase().replaceAll(' ', '-')}`
         : `https://accessible-astro.dev/${title.toLowerCase().replaceAll(' ', '-')}`}

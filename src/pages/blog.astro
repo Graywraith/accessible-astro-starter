@@ -1,0 +1,28 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/DefaultLayout.astro";
+import BlogPost from "../components/BlogPost.astro";
+import Card from "../components/Card2.astro";
+const pageTitle = "Richards Blog";
+const allPosts = await getCollection("posts");
+
+---
+
+<BaseLayout pageTitle={pageTitle}>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-3 justify-items-center auto-rows-max px-10 auto-cols-max mt-10">
+
+  { 
+    allPosts.map((post) => (
+      <Card title={post.data.title}
+            desc = {post.data.desc}
+            imgSrc={post.data.image}
+            pub_date={post.data.pubDate.toDateString()}
+            tags={post.data.tags}
+            badge={post.data.badge}
+            url={'/posts/' + post.slug}
+      />
+  ))}
+
+  </div>
+</BaseLayout>

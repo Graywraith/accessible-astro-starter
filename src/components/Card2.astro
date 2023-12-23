@@ -26,19 +26,22 @@ for (const path in images) {
 console.log(imgSrc);
 ---
 
-<div class="p-6 border border-gray-200 bg-slate-600
-    rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 
-    transition ease-in-out hover:scale-[101%] card relative pt-5
+<div class="p-6 border border-gray-200 bg-slate-600 w-[100%]
+    rounded-lg shadow dark:bg-gray-800 dark:border-gray-700
+    transition ease-in-out hover:scale-[101%] card relative pt-3
     hover:bg-gradient-to-r from-slate-400 to-slate-600 hover:shadow-2xl">
-
+   
     <a href={url}>
-        <h5 class="m-2 text-2xl font-semibold tracking-tight text-gray-300 dark:text-white">{title}</h5>
-        {badge && <div class="badge badge-secondary">{badge} </div>} <span class="text-gray-400 text-xs float-right hover:text-slate-800">&NonBreakingSpace;Published: {pub_date}</span>
+
+        <h5 class="m-2 font-semibold tracking-tight text-gray-300 dark:text-white">{title}</h5>
+
+        {badge && <div class="badge badge-secondary">{badge} </div>} 
+        <span class="text-gray-400 text-xs float-right hover:text-slate-800">Published: {pub_date}</span>
     </a>
 
     <Image src={logoSrc} alt="hello" />
 
-    <p class="pb-3 font-normal text-slate-300 dark:text-gray-400">{desc}</p>
+    <p class="pb-3 font-normal text-slate-500 dark:text-gray-100">{desc}</p>
 
     <div class="absolute inset-x-0 bottom-0 flex justify-center pb-2">
         {tagsarr.map((tag) => ( 
@@ -47,7 +50,7 @@ console.log(imgSrc);
     </div>
 </div>
 
-<style type="text/css">
+<style>
     .card:is(:hover, :focus-within) {
 		background-position: 0;
         //background-image: linear-gradient(var(--gray-gradient)) no-repeat;
@@ -58,4 +61,15 @@ console.log(imgSrc);
 	.card:is(:hover, :focus-within) h2 {
 		color: rgb(var(--accent-lght));
 	}
+
+  /* Default heading styles for the card title */
+.card h5 {
+  font-size: 1.5rem;
+}
+
+@container (max-width: 500px) {
+  .card h5 {
+    font-size: 1rem;
+  }
+}
 </style>
