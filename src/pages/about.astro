@@ -1,0 +1,97 @@
+---
+import BaseLayout from "../layouts/MainLayout.astro";
+import HorizontalCard from "../components/HorizontalCard.astro";
+import HorizontalCardEx from  "../components/HorizontalCardEx.astro";
+
+---
+
+<BaseLayout title="About" description="A summary of this site.">
+  <div>
+    <div>
+      <h2 class="text-3xl py-1 font-bold text-orange-600">
+        So lets start with this site!
+      </h2>
+      <p>
+        This 'About Page' is a bit of a Pandora's box for all the stuff which
+        didn't seem to fit anywhere else and for me to acknowledge other peoples
+        work. As always with a project like this you inevitably end up
+        repurposing code. So thanks to all.
+      </p>
+      <div class="divider my-0"></div>
+
+      <h3 class="text-2xl my-3">Site Technology:</h3>
+
+      <ul class="list-inside my-3">
+        <li class="flex items-center my-3">
+          <svg
+            class="h-6 w-6 flex-none fill-sky-100 stroke-sky-500 stroke-2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="11"></circle>
+            <path d="m8 13 2.165 2.165a1 1 0 0 0 1.521-.126L16 9" fill="none"
+            ></path>
+          </svg>
+          <p class="ml-4">Build Framework:
+            <code class="text-sm font-bold text-gray-100">&nbsp;Astro</code>
+          </p>
+        </li>
+
+        <li class="flex items-center my-3">
+          <svg
+            class="h-6 w-6 flex-none fill-sky-100 stroke-sky-500 stroke-2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="11"></circle>
+            <path d="m8 13 2.165 2.165a1 1 0 0 0 1.521-.126L16 9" fill="none"
+            ></path>
+          </svg>
+          <p class="ml-4">Base Template:
+            <code class="text-sm font-bold text-gray-100">&nbsp;Manuel Ernesto</code>
+          </p>
+        </li>
+
+        <li class="flex items-center my-3 pb-2">
+          <svg
+            class="h-6 w-6 flex-none fill-sky-100 stroke-sky-500 stroke-2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="11"></circle>
+            <path d="m8 13 2.165 2.165a1 1 0 0 0 1.521-.126L16 9" fill="none"
+            ></path>
+          </svg>
+          <p class="ml-4">Formatting:</p>
+          <code class="text-sm font-bold text-gray-100">&nbsp;Tailwind</code>
+        </li>
+      </ul>
+
+      <div class="divider pb-3"></div>
+
+      <HorizontalCard
+      title="So Why Bother?"
+      img="/assets/astro.svg"
+      desc="So the primary reason in starting was to continue my profile site. However; and its a big however my original site was rapidly becoming unwieldly, a birds nest knot of repeated and redundant code. On review and relection I did not want to ditch all the work and start again so I investigated modern development frameworks suited to developing a blog. Astro fitted the bill perfctly and I highly recomend it."
+      url="#"
+      badge="INFO"
+      tags="hello,welcome,goodbye"
+    />
+
+    <HorizontalCardEx
+      title="About Me - Genetic"
+      img="/assets/dna.svg"
+      desc="Well I wanted to include a little bit of genetic history, just because its so interesting. Lets start in the very ancient past with how the hell did I get here? Amazing isn't it to think that because here I am it can only be the result of all those who have gone before: from the migrations out of Africa, through the ice ages and the black death and on and on - survivors all." 
+      desc2="So briefly my genetic breakdown (May 2023)"
+      list = "British and Irish: 83.7% ,French and German: 12.4%, Scandanavian: 1.1%, Northwestern European: 2.8%  "
+      url="/longview"
+      badge="INFO"
+      tags = "DNA, Genetics, History "
+    />
+
+    </div>
+
+    <a class="btn btn-accent mt-9" href="/">Home</a>
+  </div>
+  
+</BaseLayout>

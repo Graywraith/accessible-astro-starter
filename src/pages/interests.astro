@@ -1,0 +1,90 @@
+---
+import BaseLayout from "../layouts/MainLayout.astro";
+import HorizontalCard from "../components/HorizontalCard.astro";
+---
+
+<BaseLayout title="My Interests." description="Interests and hobbies.">
+  <div>
+    <div class="text-3xl w-full font-bold mb-5">Interests</div>
+  </div>
+
+  <h3 class="text-2xl w-full font-bold mb-3">A whole eclectic mix here...</h3>
+  <!-- TODO link of here to genetics and doggerland -->
+  <!-- TODO look at formatting for this -->
+  <div class="divider pr-5"></div>
+  <p>
+    A stack of stuff related to my degree in Ecology and Biology. Especially
+    human evolution, its links to genetics and migrations. Also the emergence of
+    consciousness and its manifestation in art, especially the expressions in
+    cave paintings.
+  </p>
+  <p>
+    Strongly related to the above I have a strong interest in computer
+    programming. At Leeds University my final year project was a simple computer
+    model for the population dynamics of the Madagascar hissing cockroach. This
+    eventually led to a complete change of career into that of a senior software
+    engineer. So add to this C#, Python, AI ChatGPT and so on.
+  </p>
+  <div class="divider pr-5"></div>
+  <h3 class="text-2xl w-full font-bold mb-1 mt-3">Making Stuff</h3>
+  <p>
+    I have Always loved making stuff from cars to bird boxes, you name it and I
+    have had a go!
+  </p>
+  <div class="divider my-3"></div>
+  <div>
+    <div id="proj" class="text-3xl w-full font-bold mb-5 mt-10">interests</div>
+  </div>
+
+  <HorizontalCard
+    title="A Sisyphean Project (never finished)"
+    img="/assets/infinity.svg"
+    desc="This site: Re-developing my website, a learning experience using a more modern and flexible Architecture. Any programming project is never complete it spends 90% of its time 90% finished. I am sure I'm not going to start all over again from scratch but this keeps me learning."
+    url="#"
+    badge="Development"
+  />
+  <div class="divider my-0"></div>
+
+  <HorizontalCard
+    title="Building a Terranium"
+    img="/assets/003-leaves.svg"
+    desc="Always loved Bonsi and terraniums, so as Adie was sending a cool square vase to charity I saw a great opportunity to have a go. I purchased the clay pebbles, sphagnum moss and plants and had a go: very pleased with the result."
+    url="#"
+    badge="Maker"
+  />
+  <div class="divider my-0"></div>
+
+  <HorizontalCard
+    title="Birdboxes"
+    img="/assets/tools.svg"
+    desc="So I figured I would use some of my offcuts of wood and my maker skills to make a few stylish bird boxes."
+    url="https://www.pinterest.co.uk/pin/844917580110999034/"
+    badge="Maker"
+  />
+  <div class="divider my-0"></div>
+  
+  <HorizontalCard
+    title="Decorating - Boring"
+    img="/assets/brush.svg"
+    desc="Painting the hall stairs and landing, gloss and emulsion. Also needed to do the kitchen. At almost 77 its probably the last time I will ever do this. So even these chores are something to enjoy in there own way. "
+    url="#"
+    badge="Bored Panda"
+  />
+  <div class="divider my-0"></div>
+
+  <HorizontalCard
+    title="Fossil Oak Web"
+    img="/assets/filetype-html.svg"
+    desc="So this site is V2, where I try a more modern architecture (Astro) for my online profile. I have decided to keep the legacy site with all its content covering my early life and many adventures but the fish shop on the narrative will be here in this site."
+    url="https://fossiloak.co.uk/"
+    Badge="Development"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="The Summer House"
+    img="/assets/tools.svg"
+    desc="A big project undertaken a few years ago was a custom build of a summer house. This had to occupy a specific location and thus had to be a specific shape. I have posted a few images and notes on its own page."
+    url="#"
+    Badge="Maker"
+  />
+</BaseLayout>

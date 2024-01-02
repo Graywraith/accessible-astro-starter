@@ -1,18 +1,24 @@
 ---
 import CallToAction from './CallToAction.astro'
-
+import { SITE_VERSION } from "../config.ts";
 const currentYear = new Date().getFullYear()
 ---
 
 <footer>
-  <CallToAction />
+  <!-- <CallToAction /> -->
   <section class="py-8">
     <div class="container">
       <p>
-        &copy; {currentYear} - Starter Theme for <a href="https://astro.build/">Astro</a>. Made with ❤️ by <a
-          href="https://github.com/markteekman">Mark Teekman</a
+        &copy; {currentYear} - Personal Profile and Blog using <a href="https://astro.build/">Astro</a>. Made with ❤️ by <a
+          href="https://github.com/graywraith">Richard Noake</a
         >.
+        <span class="float-right italic secondary-100">Site Version: {SITE_VERSION}</span>
       </p>
     </div>
   </section>
 </footer>
+<style lang="scss">
+  div > p:first-child {
+    color: var(--action-color);
+  }
+</style>

@@ -1,0 +1,52 @@
+---
+import BaseLayout from "../layouts/MainLayout.astro";
+import HorizontalCard from "../components/HorizontalCard.astro";
+---
+
+<BaseLayout title="Ideas and Perspectives" description="Ideas and perspectives.">
+  <div>
+    <div class="text-3xl w-full font-extra-bold mb-5">
+      <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
+        Kaleidoscope: A Colorful Blend of Ideas and Perspectives
+      </span>
+    </div>
+  </div>
+
+  <HorizontalCard
+    title="Taking the long view"
+    img="/assets/dna.svg"
+    desc="Taking the long, long view of our history. How did you come to be here, what set of circumstances led to the here and now? Click for my take on this."
+    badge="DNA"
+    url="/longview"
+    target="_self"
+  />
+
+  <div class="divider my-0"></div>
+
+  <HorizontalCard
+    title="Start at the begining"
+    img="/assets/oak.svg"
+    desc="Start at the begining. My Fossil Oak site a biography and historical record of all the years up to the fish shop."
+    url="https://fossiloak.co.uk/lth1.html"
+  />
+
+  <div class="divider my-0"></div>
+
+  <HorizontalCard
+    title="The meaning of the surname"
+    img="/assets/druid.svg"
+    desc="So where exactly does the surname Noake come from?."
+    url="/surname"
+    badge="INFO"
+  />
+
+  <div class="divider my-0"></div>
+
+  <HorizontalCard
+    title="My Maker Credentials"
+    img="/assets/activity.svg"
+    desc="So once I get around to it here I will link to my latest and greatest makes. For now look at my Projets page"
+    url="/projects/"
+  />
+  
+</BaseLayout>
