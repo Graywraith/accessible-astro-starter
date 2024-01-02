@@ -3,7 +3,7 @@ title: Whats it all for?
 author: Richard Noake
 description: "So I am putting a lot of effort into this but why?"
 pubDate: "Mar 12 2023"
-heroImage: "../assets/img/logo.svg"
+image: "../assets/img/logo.svg"
 badge: "Narrative"
 has_link: false
 custom_link_label: ""

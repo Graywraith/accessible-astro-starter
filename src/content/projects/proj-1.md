@@ -9,7 +9,7 @@ pubDate: "May 06 2023"
 pricing: ""
 badge: "Woodwork"
 checkoutUrl: ""
-heroImage: "/assets/img/projects/birdTable.png"
+image: "/assets/img/projects/birdTable.png"
 tags : ["Woodwork"]
 ---
 

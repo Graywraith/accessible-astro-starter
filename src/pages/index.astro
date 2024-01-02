@@ -15,9 +15,9 @@ const projects = (await getCollection("projects")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
-const last_posts = posts.slice(0, 4);
+const last_posts = posts.slice(0, 1);
 
-const last_projects = projects.slice(0, 4);
+const last_projects = projects.slice(0, 1);
 ---
 
 <DefaultLayout title="Home">
@@ -79,7 +79,7 @@ const last_projects = projects.slice(0, 4);
               url={'/posts/' + post.slug}
               target="_self"
               badge={post.data.badge}
-              img={post.data.image}
+              imgagePath={post.data.image}
               pub_date={post.data.pubDate.toDateString()}
               tags={post.data.tags}
             />
@@ -103,7 +103,7 @@ const last_projects = projects.slice(0, 4);
               url={"/blog/" + project.slug}
               target="_self"
               badge={project.data.badge}
-              img={project.data.image}
+              imgagePath={project.data.image}
               pub_date={project.data.pubDate.toDateString()}
               tags={project.data.tags}
             />

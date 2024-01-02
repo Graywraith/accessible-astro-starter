@@ -1,5 +1,5 @@
 ---
-const { title, imgSrc, desc, url, badge, tags, pub_date, target = '_self' } = Astro.props
+const { title, desc, url, badge, tags, pub_date,imagePath, target = '_self' } = Astro.props
 
 if (typeof tags !== 'undefined') var tagsarr = tags.slice(1, 4)
 else tagsarr = new Array()
@@ -10,14 +10,14 @@ import type { ImageMetadata } from "astro"
 import.meta.glob<{ default: ImageMetadata }>
 //import logoSrc from '../assets/img/astro.svg'
 
-const images = import.meta.glob('../assets/img/*.svg')
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{jpeg,jpg,png,gif}');
+if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`);
 
 for (const path in images) {
   images[path]().then((mod) => {
     console.log(path, mod)
   })
 }
-const imageSrc = await images[imgSrc];
 
 console.log(imgSrc)
 ---
@@ -38,7 +38,7 @@ console.log(imgSrc)
       )
     }
 
-    <Image src={imgSrc} alt={title} />
+<Image src={images[imagePath]()} alt={title} />
 
     <p class="mb-3 pb-3 font-normal text-slate-500 dark:text-gray-100">{desc}</p>
 

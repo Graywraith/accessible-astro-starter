@@ -3,7 +3,7 @@ title: Creating a blog snippet
 author: Richard Noake
 description: To speed up blog creation I created a snippet.
 pubDate: May 28 2023
-heroImage: '../assets/img/vs-code.svg'
+image: '../assets/img/vs-code.svg'
 badge: Development
 has_link: false
 custom_link_label: ""
