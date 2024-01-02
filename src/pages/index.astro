@@ -76,10 +76,10 @@ const last_projects = projects.slice(0, 1);
             <Card 
               title={post.data.title}
               desc={post.data.description}
+              imageSrc={post.data.image}
               url={'/posts/' + post.slug}
               target="_self"
               badge={post.data.badge}
-              imgagePath={post.data.image}
               pub_date={post.data.pubDate.toDateString()}
               tags={post.data.tags}
             />
@@ -100,10 +100,10 @@ const last_projects = projects.slice(0, 1);
             <Card 
               title={project.data.title}
               desc={project.data.description}
+              imageSrc={project.data.image}
               url={"/blog/" + project.slug}
               target="_self"
               badge={project.data.badge}
-              imgagePath={project.data.image}
               pub_date={project.data.pubDate.toDateString()}
               tags={project.data.tags}
             />
