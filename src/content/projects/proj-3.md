@@ -9,7 +9,7 @@ pubDate: "May 30 2023"
 pricing: ""
 badge: "Nature"
 checkoutUrl: ""
-heroImage: "/assets/oak.svg"
+heroImage: "/assets/img/projects/oak.svg"
 tags : ["Nature","Garden"]
 
 ---

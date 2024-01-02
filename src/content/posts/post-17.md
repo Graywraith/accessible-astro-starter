@@ -3,7 +3,7 @@ title: The missing month!
 author: Richard Noake
 description: So what happened to the plan to add a post each week?
 pubDate: Jul 20 2023
-heroImage: '/assets/img/activity.svg'
+heroImage: '../assets/img/activity.svg'
 badge: Babble On
 has_link: false
 custom_link_label: ""

@@ -9,7 +9,7 @@ pubDate: "May 10 2023"
 pricing: ""
 badge: "Development"
 checkoutUrl: ""
-heroImage: "/assets/w3c_logo.svg"
+heroImage: "../assets/img/projects/w3c_logo.svg"
 tags : ["Web","Development"]
 ---
 

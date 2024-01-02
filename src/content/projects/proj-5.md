@@ -3,7 +3,7 @@ title: Astro Updates
 author: Richard Noake
 description: A look at the issues involved in the update to Astro V3
 pubDate: Nov 10 2023
-heroImage: /assets/astro.svg
+heroImage: '../assets/img/projects/astro.svg'
 badge: Development
 tags: ["Astro","Web","Development"]
 custom_link_label: "Learn more:"
