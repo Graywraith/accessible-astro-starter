@@ -2,7 +2,7 @@
 title: My Fourth Blog Post
 author: Richard Noake
 description: "This post will show up on its own!"
-image: "../assets/img/logo.svg"
+image: "logo.svg"
 pubDate: Feb 12 2023
 tags: ["Astro", "Successes"]
 has_link: false

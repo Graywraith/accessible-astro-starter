@@ -3,7 +3,7 @@ title: Developing Tags
 author: Richard Noake
 description: "So this template, good as it is doesn't implement tags so lets go!!"
 pubDate: "April 21 2023"
-image: "../assets/img/tag.svg"
+image: "tag.svg"
 badge: "Development"
 has_link: false
 custom_link_label: ""

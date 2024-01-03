@@ -3,7 +3,7 @@ title: Style and Presentation Again!
 author: Richard Noake
 description: "Why doI end up spending more time on presentation than content?"
 pubDate: "May 23 2023"
-image: "../assets/img/Tailwind-CSS.svg"
+image: "Tailwind-CSS.svg"
 badge: "Development"
 has_link: false
 custom_link_label: ""

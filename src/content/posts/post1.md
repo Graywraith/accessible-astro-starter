@@ -2,7 +2,7 @@
 title: "Initial post for the new site."
 description: "This is the equivalent of the testing, testing 123."
 pubDate: "Jan 10 2023"
-image: "/assets/img/logo.svg"
+image: "logo.svg"
 has_link: false
 custom_link_label: ""
 custom_link: ""
