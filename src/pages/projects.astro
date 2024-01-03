@@ -1,28 +1,36 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/DefaultLayout.astro";
+import { IMG_ASSETS_BASE_PATH } from "../config";
 import BlogPost from "../components/BlogPost.astro";
 import Card from "../components/Card2.astro";
 const pageTitle = "Richards Projects";
-const allProjects = await getCollection("projects");
 
+const allprojects = (await getCollection("projects")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
 ---
 
 <BaseLayout pageTitle={pageTitle}>
 
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-3 justify-items-center auto-rows-max px-10 auto-cols-max mt-10">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-3 justify-stretch auto-rows-max px-10 auto-cols-max mt-10">
 
-  { 
-    allProjects.map((post) => (
-      <Card title={post.data.title}
-            desc = {post.data.desc}
-            imgSrc={post.data.image}
-            pub_date={post.data.pubDate.toDateString()}
-            tags={post.data.tags}
-            badge={post.data.badge}
-            url={'/posts/' + post.slug}
-      />
-  ))}
+    {
+      allprojects.map((proj) => (
+        <div>
+        <Card 
+          title={proj.data.title}
+          desc={proj.data.description}
+          imageSrc={IMG_ASSETS_BASE_PATH + proj.data.image}
+          url={'/posts/' + proj.slug}
+          target="_self"
+          badge={proj.data.badge}
+          pub_date={proj.data.pubDate.toDateString()}
+          tags={proj.data.tags}
+        />
+      </div>
+      ))
+    }
 
   </div>
 </BaseLayout>
