@@ -1,0 +1,94 @@
+---
+import type { GetStaticPathsOptions, Page } from "astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+
+import Card from "../../components/card2.astro";
+import MainLayout from "../../layouts/DefaultLayout.astro";
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+  const publishedProject = await getCollection("projects", ({ data }) => {
+    return data.draft !== true;
+  });
+
+  const projects: CollectionEntry<"project">[] = publishedProject.sort(
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+  );
+
+  return paginate(projects, {
+    pageSize: 9,
+  });
+}
+
+const { page } = Astro.props as { page: Page<CollectionEntry<"project">> };
+
+const pageDataLength = () => {
+  if (page.currentPage === 1) {
+    return page.data.length;
+  } else if (page.currentPage === page.lastPage) {
+    return page.total;
+  } else {
+    return 10 + page.data.length;
+  }
+};
+---
+
+<MainLayout
+  title="Projects"
+  description="Projects of all kinds, maker, fixer and developer:)"
+>
+  <section class="mt-10">
+    <h1 class="text-xl md:text-3xl text-center font-bold">Latest Projects</h1>
+
+   
+    <div class="my-10 grid grid-cols-1 md:grid-cols-2 gap-5">
+      {
+        page.data.map((project) => (
+          <Card
+            title={project.data.title}
+            description={project.data.description}
+            slug={project.slug}
+            pubDate={project.data.pubDate}
+            imgage={project.data.imgSrc}
+          />
+        ))
+      }
+    </div>
+
+    <div>
+      <p class="text-center font-semibold mb-5">
+        Showing{" "}{pageDataLength()} posts out of{" "}
+        {page.total}
+      </p>
+      <div class="mb-5 flex items-center justify-center gap-5">
+        {
+          page.url.prev ? (
+            <a
+              href={`${page.url.prev}/`}
+              class="bg-blue-600 px-5 py-2 rounded-md  text-white"
+            >
+              Previous
+            </a>
+          ) : (
+            <span class="bg-gray-600 cursor-not-allowed px-5 py-2 rounded-md  text-white">
+              Previous
+            </span>
+          )
+        }
+        {
+          page.url.next ? (
+            <a
+              class="bg-blue-600 px-5 py-2 rounded-md text-white"
+              href={`${page.url.next}/`}
+            >
+              Next
+            </a>
+          ) : (
+            <span class="bg-gray-600 cursor-not-allowed px-5 py-2 rounded-md  text-white">
+              Next
+            </span>
+          )
+        }
+      </div>
+    </div>
+  </section>
+</MainLayout>

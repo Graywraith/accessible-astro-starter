@@ -9,6 +9,7 @@ const blogCollection = defineCollection({
       tags: z.array(z.string()),
       image: z.string(),
       description: z.string(),
+      draft: z.boolean().default(false),
       pubDate: z.string().transform((str) => new Date(str)),
       updatedDate: z.string().transform((str) => new Date(str)).optional(),
       badge: z.string().optional(),
@@ -20,6 +21,7 @@ const blogCollection = defineCollection({
     schema: z.object({
       title: z.string(),
       tags: z.array(z.string()),
+      draft: z.boolean().default(false),
       details: z.boolean().optional(),
       image: z.string(),
       description: z.string(),
