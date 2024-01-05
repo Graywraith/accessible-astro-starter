@@ -1,8 +1,8 @@
 ---
 import type { GetStaticPathsOptions, Page } from "astro";
 import { getCollection, type CollectionEntry } from "astro:content";
-
-import PostCard from "../../components/blog/post-card.astro";
+import { IMG_ASSETS_BASE_PATH } from "../../config";
+import Card from "../../components/Card2.astro";
 import MainLayout from "../../layouts/DefaultLayout.astro";
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
@@ -15,7 +15,7 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   );
 
   return paginate(posts, {
-    pageSize: 10,
+    pageSize: 9,
   });
 }
 
@@ -36,18 +36,24 @@ const pageDataLength = () => {
   title="Blog"
   description="Posts regarading frontend, firebase, reactjs, nextjs"
 >
-  <section class="mt-10">
+  <section class="mt-10 container">
     <h1 class="text-xl md:text-3xl text-center font-bold">Latest Posts</h1>
 
-    <div class="my-10 grid grid-cols-1 md:grid-cols-2 gap-5">
+    <div class="my-10 grid grid-cols-1 md:grid-cols-3 gap-2">
       {
         page.data.map((post) => (
-          <PostCard
-            title={post.data.title}
-            description={post.data.description}
-            slug={post.slug}
-            publishedDate={post.data.publishedDate}
-          />
+        <div>
+            <Card 
+              title={post.data.title}
+              desc={post.data.description}
+              imageSrc={IMG_ASSETS_BASE_PATH + post.data.image}
+              url={'/posts/' + post.slug}
+              target="_self"
+              badge={post.data.badge}
+              pub_date={post.data.pubDate.toDateString()}
+              tags={post.data.tags}
+            />
+          </div>
         ))
       }
     </div>

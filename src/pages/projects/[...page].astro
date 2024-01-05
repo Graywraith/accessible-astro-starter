@@ -1,7 +1,7 @@
 ---
 import type { GetStaticPathsOptions, Page } from "astro";
 import { getCollection, type CollectionEntry } from "astro:content";
-
+import { IMG_ASSETS_BASE_PATH } from "../config.ts";
 import Card from "../../components/Card2.astro";
 import MainLayout from "../../layouts/DefaultLayout.astro";
 import { IMG_ASSETS_BASE_PATH } from "../../config";
@@ -37,20 +37,25 @@ const pageDataLength = () => {
   title="Projects"
   description="Projects of all kinds, maker, fixer and developer:)"
 >
-  <section class="mt-10">
+  <section class="mt-10 container">
     <h1 class="text-xl md:text-3xl text-center font-bold">Latest Projects</h1>
 
    
-    <div class="my-10 grid grid-cols-1 md:grid-cols-2 gap-5">
+    <div class="my-10 grid grid-cols-1 md:grid-cols-3 gap-3">
       {
         page.data.map((project) => (
-          <Card
-            title={project.data.title}
-            description={project.data.description}
-            slug={project.slug}
-            pubDate={project.data.pubDate}
-            imgageSrc={IMG_ASSETS_BASE_PATH + project.data.image}
-          />
+        <div>
+            <Card 
+              title={project.data.title}
+              desc={project.data.description}
+              imageSrc={IMG_ASSETS_BASE_PATH + project.data.image}
+              url={"/blog/" + project.slug}
+              target="_self"
+              badge={project.data.badge}
+              pub_date={project.data.pubDate.toDateString()}
+              tags={project.data.tags}
+            />
+          </div>
         ))
       }
     </div>
