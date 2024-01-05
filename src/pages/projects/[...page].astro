@@ -2,8 +2,9 @@
 import type { GetStaticPathsOptions, Page } from "astro";
 import { getCollection, type CollectionEntry } from "astro:content";
 
-import Card from "../../components/card2.astro";
+import Card from "../../components/Card2.astro";
 import MainLayout from "../../layouts/DefaultLayout.astro";
+import { IMG_ASSETS_BASE_PATH } from "../../config";
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   const publishedProject = await getCollection("projects", ({ data }) => {
@@ -48,7 +49,7 @@ const pageDataLength = () => {
             description={project.data.description}
             slug={project.slug}
             pubDate={project.data.pubDate}
-            imgage={project.data.imgSrc}
+            imgageSrc={IMG_ASSETS_BASE_PATH + project.data.image}
           />
         ))
       }
