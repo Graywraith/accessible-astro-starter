@@ -4,36 +4,27 @@ import '../../assets/scss/globals.scss'
 import SiteMeta from '../../components/SiteMeta.astro'
 import Header from '../../components/Header.astro'
 import Footer from '../../components/Footer.astro'
-import NewPostHeader from "../blog/new-post-header.astro";
-import { IMG_ASSETS_BASE_PATH } from "../../config.ts";
+import NewPostHeader from '../blog/new-post-header.astro'
+import { IMG_ASSETS_BASE_PATH } from '../../config.ts'
 //import PageSchema from "../seo/page-schema.astro";
 //import PostSchema from "../seo/post-schema.astro";
-import Feedback from "../blog/feedback";
+import Feedback from '../blog/feedback'
 
 interface Props {
-  title: string;
-  description: string;
-  pubDate: Date;
-  image: string;
-  category: string[];
-  tags: string[];
+  title: string
+  description: string
+  pubDate: Date
+  image: string
+  category: string[]
+  tags: string[]
 }
 
-const {
-  title,
-  description,
-  pubDate,
-  image,
-  category,
-  tags,
-} = Astro.props;
+const { title, description, pubDate, image, category, tags } = Astro.props
 
 // formatting the dates and adding random time
-const formattedPublishedDate = `${
-  new Date(pubDate).toISOString().split("T")[0]
-}:T13:50:13+00:00`;
-
+const formattedPublishedDate = `${new Date(pubDate).toISOString().split('T')[0]}:T13:50:13+00:00`
 ---
+
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8" />
@@ -48,31 +39,27 @@ const formattedPublishedDate = `${
       description={description.substring(0, 10)}
       url={Astro.site}
       image={image}
-      author='Richard Noake'
+      author="Richard Noake"
     />
   </head>
+
   <body>
-    
-  <Header {title} {description}></Header>
+    <Header {title} {description} />
 
-  <section>
-    <main class="md:mx-auto md:px-7 px-4 pb-2">
-      <section
-        class="max-w-7xl md:w-[85%] lg:w-full mx-auto post-content text-[19px]"
-      >
-        <NewPostHeader {title} {pubDate}/>
+    <section>
+      <main class="px-4 pb-2 md:mx-auto md:px-7">
+        <section class="post-content mx-auto max-w-7xl text-[19px] md:w-[85%] lg:w-full">
+          <NewPostHeader {title} {pubDate} />
+          <slot />
+        </section>
 
-        <slot />
-      </section>
-      
-      <!-- {import.meta.env.PROD && <Feedback client:visible /> } -->
-      <Feedback client:visible />
-    </main>
+        <!-- {import.meta.env.PROD && <Feedback client:visible /> } -->
+        <Feedback client:visible />
+      </main>
 
-    <Footer />
-      
-  </section>
-   <style lang="scss" is:global>
+      <Footer />
+    </section>
+    <style lang="scss" is:global>
       // theme settings
       :root {
         --radius-small: 3px;
@@ -139,5 +126,5 @@ const formattedPublishedDate = `${
         }
       }
     </style>
-   </body>
+  </body>
 </html>
