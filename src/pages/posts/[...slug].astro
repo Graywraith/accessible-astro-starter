@@ -1,0 +1,53 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import BlogPostLayout from "../../components/layout/blog-post-layout.astro";
+import TableOfContents from "../../components/blog/table-of-contents.astro";
+import Feedback from "../../components/blog/feedback";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog", ({ data }) => {
+    return data.draft !== true;
+  });
+
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
+  }));
+}
+type Props = CollectionEntry<"blog">;
+
+const post = Astro.props;
+
+const {
+  title,
+  description,
+  ogImage,
+  updatedDate,
+  publishedDate,
+  featuredImage,
+  category,
+} = post.data;
+
+const { Content, headings } = await post.render();
+---
+
+<BlogPostLayout
+  {title}
+  {description}
+  {ogImage}
+  {updatedDate}
+  {publishedDate}
+  {featuredImage}
+  {category}
+>
+  <article class="flex gap-5 items-start w-full h-full">
+    <div class="lg:w-[65%] w-full lg:mr-10">
+      <Content />
+    </div>
+
+    <aside class="hidden lg:flex flex-col z-1 sticky top-4">
+      <!-- <TOC {headings} client:load /> -->
+      <TableOfContents {headings} />
+    </aside>
+  </article>
+</BlogPostLayout>

@@ -1,10 +1,12 @@
 {
-    "extends": "astro/tsconfigs/strict",
-    "compilerOptions": {
-      "jsx": "react-jsx",
-      "jsxImportSource": "react",
-      "types": ["vite/client"],
-      "strictNullChecks": true,
-      "allowJs": true
-    }
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "jsx": "preserve",
+    "jsxImportSource": "solid-js",
+    "types": [
+      "vite/client"
+    ],
+    "strictNullChecks": true,
+    "allowJs": true
   }
+}
