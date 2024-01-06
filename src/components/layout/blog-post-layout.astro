@@ -1,9 +1,11 @@
 ---
-import Header from "../Header.astro";
-import "@fontsource-variable/inter";
-import "../../global.css";
-import Footer from "../Footer.astro";
+import '@astrojs/tailwind/base.css'
+import '../../assets/scss/globals.scss'
+import SiteMeta from '../../components/SiteMeta.astro'
+import Header from '../../components/Header.astro'
+import Footer from '../../components/Footer.astro'
 import NewPostHeader from "../blog/new-post-header.astro";
+import { IMG_ASSETS_BASE_PATH } from "../../config.ts";
 //import PageSchema from "../seo/page-schema.astro";
 //import PostSchema from "../seo/post-schema.astro";
 import Feedback from "../blog/feedback";
@@ -32,45 +34,110 @@ const formattedPublishedDate = `${
 }:T13:50:13+00:00`;
 
 ---
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-<!doctype html>
-<html class="dark" lang="en">
-  <Header {title} {description}>
-    <meta property="article:published_time" content={formattedPublishedDate} />
-    <link rel="stylesheet" href="/prism-dracula.css" />
-    <!-- <PostSchema
-      {title}
-      {description}
-      publishedAt={formattedPublishedDate}
-      updatedAt={formattedUpdatedDate}
-      featuredImage={featuredImage}
-      {category}
-    /> -->
+    <!-- favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    {
-      Boolean(Number(import.meta.env.CAPTURE_ANALYTICS)) && (
-      <script is:inline>
-    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-    posthog.init('phc_v2ScNgmrvSyQW0ClZ5Ozl4YMaYACaggPJy2pPEUs0Mh',{api_host:'https://eu.posthog.com'})
-    </script>
-      )
-    }
-  </Header>
-
+    <SiteMeta
+      title={title}
+      description={description.substring(0, 10)}
+      url={Astro.site}
+      image={image}
+      author='Richard Noake'
+    />
+  </head>
   <body>
-    <main class="md:mx-auto md:px-7 px-4 pb-2 w-full">
+    
+  <Header {title} {description}></Header>
+
+  <section>
+    <main class="md:mx-auto md:px-7 px-4 pb-2">
       <section
         class="max-w-7xl md:w-[85%] lg:w-full mx-auto post-content text-[19px]"
       >
         <NewPostHeader {title} {pubDate}/>
+
         <slot />
       </section>
       
-      {import.meta.env.PROD && <Feedback client:visible /> }
-      <!-- <Feedback client:visible /> -->
+      <!-- {import.meta.env.PROD && <Feedback client:visible /> } -->
+      <Feedback client:visible />
     </main>
 
     <Footer />
       
-  </body>
+  </section>
+   <style lang="scss" is:global>
+      // theme settings
+      :root {
+        --radius-small: 3px;
+        --radius-large: 6px;
+        --gap-default: 2rem;
+        --font-measure: 70ch;
+        --font-family-default: 'Open Sans', sans-serif;
+        --font-family-special: 'Open Sans', sans-serif;
+        // light theme
+        --font-color: var(--neutral-900);
+        --action-color: var(--primary-300);
+        --action-color-state: var(--primary-500);
+        --background: var(--neutral-100);
+        --primary-background: var(--primary-100);
+        --neutral-background: var(--neutral-200);
+      }
+
+      // dark color scheme overrides
+      .darkmode {
+        --font-color: var(--neutral-100);
+        --action-color: var(--secondary-100);
+        --action-color-state: var(--secondary-500);
+        --background: var(--dark-100);
+        --primary-background: var(--primary-500);
+        --neutral-background: var(--neutral-900);
+      }
+
+      // sticky footer on low content pages
+      html,
+      body {
+        height: 100%;
+        overflow-x: hidden;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        color: var(--font-color);
+        background-color: var(--background);
+
+        main {
+          flex: 1 0 auto;
+        }
+
+        footer {
+          flex-shrink: 0;
+        }
+      }
+
+      pre {
+        padding: 1rem;
+        border-radius: 0.35rem;
+        border: 2px solid var(--action-color);
+      }
+
+      body .pagination a {
+        &:hover,
+        &:focus-visible {
+          background-color: var(--action-color-state);
+
+          svg path {
+            stroke: white;
+          }
+        }
+      }
+    </style>
+   </body>
 </html>
