@@ -3,6 +3,7 @@ title: A new begining.
 author: Richard Noake
 description: "If you are going to bother with a blog surely you need content!"
 pubDate: "March 28 2023"
+updatedDate: "Jan 10 2024"
 image: "activity.svg"
 badge: "Narrative"
 has_link: false

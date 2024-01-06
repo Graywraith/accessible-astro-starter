@@ -3,6 +3,7 @@ title: "Claddistics and Classification"
 author: Richard Noake
 description: "Cladistics and their universal application!"
 pubDate: "April 23 2023"
+updatedDate: "Jan 10 2024"
 image: "clade.svg"
 badge: "Biology"
 has_link: false

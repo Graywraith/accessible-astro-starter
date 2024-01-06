@@ -3,6 +3,7 @@ title: Random Thoughts.
 author: Richard Noake
 description: "A few unrelated random thoughts!"
 pubDate: "April 13 2023"
+updatedDate: "Jan 10 2024"
 image: "icons8-idea.svg"
 badge: "Thoughts"
 has_link: false

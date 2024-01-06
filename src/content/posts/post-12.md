@@ -3,6 +3,7 @@ title: A bit of a miscellany
 author: Richard Noake
 description: "The Hansons, Bryants (Bryans) and other thoughts."
 pubDate: "May 08 2023"
+updatedDate: "Jan 10 2024"
 image: "clade.svg"
 badge: "Info"
 has_link: false

@@ -3,6 +3,7 @@ title: Learning Astro
 author: Richard Noake
 description: "A Markdown file in the content folder will show up on its own!"
 pubDate: "Feb 20 2023"
+updatedDate: "Jan 10 2024"
 image: "logo.svg"
 badge: "Development"
 has_link: false

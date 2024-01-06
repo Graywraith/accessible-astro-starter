@@ -2,7 +2,8 @@
 title: AOMC - Comparison of climate at UK latitude
 author: Richard Noake
 description: Investigation of how AMOC mediates the climate in northern England
-pubDate: Aug 1 2023
+pubDate: "Aug 1 2023"
+updatedDate: "Jan 10 2024"
 image: 'cloud-1.svg'
 badge: Climate
 has_link: false

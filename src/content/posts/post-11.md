@@ -3,6 +3,7 @@ title: Passing Arrays to Components
 author: Richard Noake
 description: "Issues passing an array into a component"
 pubDate: "May 05 2023"
+updatedDate: "Jan 10 2024"
 image: "astro.svg"
 badge: "Development"
 has_link: false

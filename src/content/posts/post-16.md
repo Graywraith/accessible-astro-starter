@@ -2,7 +2,8 @@
 title: Gardening is Ecology
 author: Richard Noake
 description: Ecology is Gardening and Gardening is Ecology
-pubDate: Jun 05 2023
+pubDate: "Jun 05 2023"
+updatedDate: "Jan 10 2024"
 image: 'infinity.svg'
 badge: Ecology
 has_link: false
