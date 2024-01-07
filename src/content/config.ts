@@ -27,7 +27,7 @@ const blogCollection = defineCollection({
       description: z.string(),
       pubDate: z.string().transform((str) => new Date(str)),
       updatedDate: z.string().transform((str) => new Date(str)).optional(),
-      badge: z.string().optional(),
+      badge: z.string().optional(), // use for category
     }),
   });
 

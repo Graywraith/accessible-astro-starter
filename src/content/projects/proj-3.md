@@ -6,6 +6,7 @@ has_link: false
 custom_link_label: ""
 custom_link: ""
 pubDate: "May 30 2023"
+updatedDate: "07/01/2024"
 pricing: ""
 badge: "Nature"
 checkoutUrl: ""

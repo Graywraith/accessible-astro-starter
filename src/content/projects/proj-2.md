@@ -6,6 +6,7 @@ has_link: true
 custom_link_label: "Astro"
 custom_link: "https://astro.build/"
 pubDate: "May 10 2023"
+updatedDate: "07/01/2024"
 pricing: ""
 badge: "Development"
 checkoutUrl: ""

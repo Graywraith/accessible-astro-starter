@@ -1,0 +1,54 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import ProjectPostLayout from "../../components/layout/project-post-layout.astro";
+import TableOfContents from "../../components/blog/table-of-contents.astro";
+import Feedback from "../../components/blog/feedback";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("projects", ({ data }) => {
+    return data.draft !== true;
+  });
+
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: project,
+  }));
+}
+type Props = CollectionEntry<"project">;
+
+const project = Astro.props;
+
+const {
+  title,
+  description,
+  pubDate,
+  updatedDate,
+  image,
+  category,
+  tags,
+} = project.data;
+
+const { Content, headings } = await project.render();
+---
+
+<ProjectPostLayout
+  {title}
+  {description}
+  {pubDate}
+  {updatedDate}
+  {image}
+  {category}
+  {tags}
+>
+  <article class="flex gap-5 items-start w-full h-full">
+    <div class="lg:w-[65%] w-full lg:mr-10">
+      <Content />
+    </div>
+
+    <aside class="hidden lg:flex flex-col z-1 sticky top-4">
+      <!-- <TableOfContents {headings} client:load /> -->
+      <TableOfContents {headings} />
+    </aside>
+  </article>
+
+</ProjectPostLayout>

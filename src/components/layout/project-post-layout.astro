@@ -1,0 +1,135 @@
+---
+import '@astrojs/tailwind/base.css'
+import '../../assets/scss/globals.scss'
+import SiteMeta from '../../components/SiteMeta.astro'
+import Header from '../../components/Header.astro'
+import Footer from '../../components/Footer.astro'
+import NewPostHeader from '../blog/new-post-header.astro'
+import { IMG_ASSETS_BASE_PATH } from '../../config.ts'
+//import PageSchema from "../seo/page-schema.astro";
+//import PostSchema from "../seo/post-schema.astro";
+import Feedback from '../blog/feedback'
+
+interface Props {
+  title: string
+  description: string
+  pubDate: Date
+  updatedDate: Date
+  image: string
+  category: string[]
+  tags: string[]
+}
+
+const { title, description, pubDate, updatedDate, image, category, tags } = Astro.props
+
+// formatting the dates and adding random time
+const formattedPublishedDate = `${new Date(pubDate).toISOString().split('T')[0]}:T13:50:13+00:00`
+const formattedUpdatedDate = `${
+  new Date(updatedDate).toISOString().split("T")[0]
+}:T16:52:29+00:00`;
+---
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <SiteMeta
+      title={title}
+      description={description.substring(0, 10)}
+      url={Astro.site}
+      image={image}
+      author="Richard Noake"
+    />
+  </head>
+
+  <body>
+    <Header {title} {description} />
+
+    <section>
+      <main class="px-4 pb-2 md:mx-auto md:px-7">
+        <section class="post-content mx-auto max-w-7xl text-[19px] md:w-[85%] lg:w-full">
+          <NewPostHeader {title} {pubDate} {updatedDate} />
+          <slot />
+        </section>
+        <h3>Implement Tags here</h3>
+        <!-- TODO implement site feedback section below causes errors -->
+        <!-- {import.meta.env.PROD && <Feedback client:visible /> } -->
+        <!-- <Feedback client:visible /> -->
+      </main>
+
+      <Footer />
+    </section>
+    <style lang="scss" is:global>
+      // theme settings
+      :root {
+        --radius-small: 3px;
+        --radius-large: 6px;
+        --gap-default: 2rem;
+        --font-measure: 70ch;
+        --font-family-default: 'Open Sans', sans-serif;
+        --font-family-special: 'Open Sans', sans-serif;
+        // light theme
+        --font-color: var(--neutral-900);
+        --action-color: var(--primary-300);
+        --action-color-state: var(--primary-500);
+        --background: var(--neutral-100);
+        --primary-background: var(--primary-100);
+        --neutral-background: var(--neutral-200);
+      }
+
+      // dark color scheme overrides
+      .darkmode {
+        --font-color: var(--neutral-100);
+        --action-color: var(--secondary-100);
+        --action-color-state: var(--secondary-500);
+        --background: var(--dark-100);
+        --primary-background: var(--primary-500);
+        --neutral-background: var(--neutral-900);
+      }
+
+      // sticky footer on low content pages
+      html,
+      body {
+        height: 100%;
+        overflow-x: hidden;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        color: var(--font-color);
+        background-color: var(--background);
+
+        main {
+          flex: 1 0 auto;
+        }
+
+        footer {
+          flex-shrink: 0;
+        }
+      }
+
+      pre {
+        padding: 1rem;
+        border-radius: 0.35rem;
+        border: 2px solid var(--action-color);
+      }
+
+      body .pagination a {
+        &:hover,
+        &:focus-visible {
+          background-color: var(--action-color-state);
+
+          svg path {
+            stroke: white;
+          }
+        }
+      }
+    </style>
+  </body>
+</html>
