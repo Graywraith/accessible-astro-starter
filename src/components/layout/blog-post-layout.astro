@@ -14,15 +14,19 @@ interface Props {
   title: string
   description: string
   pubDate: Date
+  updatedDate: Date
   image: string
   category: string[]
   tags: string[]
 }
 
-const { title, description, pubDate, image, category, tags } = Astro.props
+const { title, description, pubDate, updatedDate, image, category, tags } = Astro.props
 
 // formatting the dates and adding random time
 const formattedPublishedDate = `${new Date(pubDate).toISOString().split('T')[0]}:T13:50:13+00:00`
+const formattedUpdatedDate = `${
+  new Date(updatedDate).toISOString().split("T")[0]
+}:T16:52:29+00:00`;
 ---
 
 <html lang="en" dir="ltr">
@@ -49,12 +53,13 @@ const formattedPublishedDate = `${new Date(pubDate).toISOString().split('T')[0]}
     <section>
       <main class="px-4 pb-2 md:mx-auto md:px-7">
         <section class="post-content mx-auto max-w-7xl text-[19px] md:w-[85%] lg:w-full">
-          <NewPostHeader {title} {pubDate} />
+          <NewPostHeader {title} {pubDate} {updatedDate} />
           <slot />
         </section>
-
+        
+        <!-- TODO implement site feedback section below causes errors -->
         <!-- {import.meta.env.PROD && <Feedback client:visible /> } -->
-        <Feedback client:visible />
+        <!-- <Feedback client:visible /> -->
       </main>
 
       <Footer />

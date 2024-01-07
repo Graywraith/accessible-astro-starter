@@ -22,6 +22,7 @@ const {
   title,
   description,
   pubDate,
+  updatedDate,
   image,
   category,
   tags,
@@ -34,18 +35,19 @@ const { Content, headings } = await post.render();
   {title}
   {description}
   {pubDate}
+  {updatedDate}
   {image}
   {category}
   {tags}
 >
   <article class="flex gap-5 items-start w-full h-full">
-    <div class="lg:w-[65%] w-full lg:mr-10  bg-slate-500">
+    <div class="lg:w-[65%] w-full lg:mr-10">
       <Content />
     </div>
 
     <aside class="hidden lg:flex flex-col z-1 sticky top-4">
-      <!-- <TOC {headings} client:load /> -->
-      <TableOfContents {headings} />
+      <TableOfContents {headings} client:load />
+      <!-- <TableOfContents {headings} /> -->
     </aside>
   </article>
 </BlogPostLayout>
