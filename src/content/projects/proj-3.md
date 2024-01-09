@@ -15,14 +15,14 @@ tags : ["Nature","Garden"]
 
 ---
 
-### An update on the ongoing development of my garden
+### Update on my garden
 
----
+<br/>
 
-So projects...
-
+#### So projects...
+<br/><br/>
 A Garden is never finished, it evolves over time.
-
-<img title="Garden View" alt="Tomato progress in late may 2023" src="/assets/projects/garden23.png"/>
-
+<br/><br/>
+<img title="Garden View" alt="Tomato progress in late may 2023" src="../src/assets/img/garden231.png" width="75%">
+<br/>
 A quick look at the progress of tomatoes and lettuce in late may 2023.

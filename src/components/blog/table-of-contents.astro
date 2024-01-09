@@ -1,14 +1,19 @@
 ---
 import type { MarkdownHeading } from "astro";
+import { Image } from "astro:assets";
+import logo from "../../assets/img/toc.svg"
 interface Props {
   headings: MarkdownHeading[];
 }
 const { headings } = Astro.props;
 
-const filteredHeading = headings.filter((f) => f.depth < 4);
+const filteredHeading = headings.filter((f) => f.depth < 5);
 ---
 
-<h3>Table of Contents</h3>
+<a href="/" class="flex items-center gap-2 !no-underline">
+  <Image src={logo} alt="TOC" width="35" height="35" />
+  <span class="font-bold text-2xl text-zinc-400 mb-5">Table of Contents</span>
+</a>
 
 {
   filteredHeading.length > 0
@@ -16,20 +21,19 @@ const filteredHeading = headings.filter((f) => f.depth < 4);
         <a class={`toc-link depth-${heading.depth}`} href={`#${heading.slug}`}>
           {heading.text}
         </a>
-      ))
+      )) 
     : null
 }
 
 <style>
   .depth-3 {
-    margin-left: 1.25rem;
+    margin-left: 1.8rem;
   }
 
   a.toc-link.depth-2 {
-    font-weight: 500;
+    font-weight: 300;
     /* text-decoration: underline; */
   }
-
   a.toc-link {
     /* color: white;
     font: 0.5rem;
