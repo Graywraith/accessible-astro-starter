@@ -3,6 +3,7 @@ import { type CollectionEntry, getCollection } from "astro:content";
 import BlogPostLayout from "../../components/layout/blog-post-layout.astro";
 import TableOfContents from "../../components/blog/table-of-contents.astro";
 import Feedback from "../../components/blog/feedback";
+import TagTable from "../../components/TagTable.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts", ({ data }) => {
@@ -46,8 +47,9 @@ const { Content, headings } = await post.render();
     </div>
 
     <aside class="hidden lg:flex flex-col z-1 sticky top-4">
-      <TableOfContents {headings} client:load />
+      <TableOfContents {headings} />
       <!-- <TableOfContents {headings} /> -->
+      <TagTable title="Blog Tags" tags={tags}>
     </aside>
   </article>
 </BlogPostLayout>
