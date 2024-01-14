@@ -4,7 +4,7 @@ author: Richard Noake
 description: Its been months since I last blogged why now.
 pubDate: Jan 12 2024
 updateDate: Jan 14 2024
-image: '/assets/clade.svg'
+image: 'clade.svg'
 badge: development
 tags: ["blogging","astro","tailwind"]
 ---

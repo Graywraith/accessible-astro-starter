@@ -2,15 +2,15 @@
 const { title, imgsrc, desc, url, badge, tags, target = '_self' } = Astro.props;
 ---
 
-<div class="rounded-lg hover:shadow-xl transition ease-in-out hover:scale-[102%] border border-gray-600 p-5 link-card">
+<div class="rounded-lg hover:shadow-xl transition ease-in-out hover:scale-[102%] border border-gray-500 p-5 link-card mb-3">
   <a href={url} target={target}>
     <div class="hero-content flex-col md:flex-row">
       <!-- {img && <img src={img} alt={title} class="max-w-full md:max-w-[13rem] rounded-lg" />} -->
-      {imgsrc && <img src={imgsrc} alt={title} class="max-w-full  md:max-w-[13rem] h-28 rounded-lg" />}
+      {imgsrc && <img src={imgsrc} alt={title} class="max-w-full  md:max-w-[13rem] h-28 rounded-lg float-right p-3" />}
       <div class="grow w-full">
-        <h1 class="text-xl font-bold">
+        <h1 class="text-xl ">
           {title}
-          {badge && <div class="badge badge-secondary mx-2">{badge}</div>}
+          {badge && <div class="text-lg mx-2 bg-gradient-to-r from-emerald-200 to-emerald-900 bg-clip-text text-transparent rounded-md ring-1 ring-slate-500 ring-offset-3 w-fit p-2 mt-2">{badge}</div>}
         </h1>
         <p class="py-1 text-1xl">{desc}</p>
         <div class="card-actions justify-end">
