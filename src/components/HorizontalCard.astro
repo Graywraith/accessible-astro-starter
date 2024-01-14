@@ -6,7 +6,7 @@ const { title, imgsrc, desc, url, badge, tags, target = '_self' } = Astro.props;
   <a href={url} target={target}>
     <div class="hero-content flex-col md:flex-row">
       <!-- {img && <img src={img} alt={title} class="max-w-full md:max-w-[13rem] rounded-lg" />} -->
-      {imgsrc && <img src={imgsrc} alt={title} class="max-w-full  md:max-w-[13rem] h-28 rounded-lg float-right p-3" />}
+      {imgsrc && <img src={imgsrc} alt={title} class="max-w-full  md:max-w-[15rem] h-32 rounded-lg float-right p-3" />}
       <div class="grow w-full">
         <h1 class="text-xl ">
           {title}
