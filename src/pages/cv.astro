@@ -1,106 +1,107 @@
 ---
-import BaseLayout from "../layouts/DefaultLayout.astro";
-import TimeLineElement from "../components/TimeLine.astro";
+import BaseLayout from '../layouts/DefaultLayout.astro'
+import TimeLineElement from '../components/TimeLine.astro'
 ---
 
-<BaseLayout title = "Resume" description="Just in case you need it!">
-  <div class="mb-5">
-    <div class="text-3xl w-full font-bold">Profile</div>
+<BaseLayout title="Resume" description="Just in case you need it!">
+  <div class="container">
+    <div class="mb-5">
+      <div class="w-full text-3xl font-bold">Profile</div>
+    </div>
+
+    <div class="mb-10 text-justify">
+      This is so complicated to document as its been such a varied working life. But working backwards... Over ten years
+      as a software engineer mainly focused in educational software development. Covering various programming languages,
+      frameworks, CMS and graphics engines. Experience in WEB design and development. Working with SQL Data Base
+      systems, as well as design, normalization and migration. Also knowledge graphic design tools for image
+      manipulation , User Interfaces design, Web sites, logos and other etc.
+    </div>
+
+    <div class="mb-5">
+      <div class="w-full text-3xl font-bold">Education</div>
+    </div>
+
+    <div class="time-line-container mb-10 grid gap-4">
+      <TimeLineElement title="Ecology and Evolution" subtitle="1993 to 1996 at Leeds University, West Yorkshire, UK" />
+      <TimeLineElement title="Access to HE" subtitle="1992 to 1993 at Joseph Priestly College, Peel Street, Morley" />
+    </div>
+
+    <div class="mb-5">
+      <div class="w-full text-3xl font-bold">Experience</div>
+    </div>
+
+    <div class="time-line-container mb-10">
+      <TimeLineElement
+        title="Senior Engineer, Full stack developer at Research Machines (RM plc)"
+        subtitle="From 1997 at Key Solutions, Otley, UK"
+        desc="Research Machines is a key player in the educational software market and at Otley we develped  the Integris system of school management systems. A multiplatform system that includes both school and Local Authority software. In addition to this I was influential in developing pupil assesment and curriculum solutions for both the UK and Western Australia. A wide spread of technology was in use far too extensive to fully document in such a fast changing scene as software development but to include MS SQL Server, VB, C#, VBA, Xml, Json, Java and Javascript."
+      />
+      <TimeLineElement
+        title="IT Biology Laboratory Teacher "
+        subtitle="From 1995 to 1997 at Joseph Priestly College, Morley and Rothwell"
+        desc="Provision of basic IT skills and support for the computer and biology laboratories at several of the Joseph Priestly sites."
+      />
+      <TimeLineElement
+        title="Now it starts to get complicated! Sub Contract Panel Beater Paint Sprayer."
+        subtitle="From 1983 to 1995 at GB Autos Staincliffe & others, UK"
+        desc="Accident repair, and repaints on cars and light commercial vehicles. With a smattering of classic vehicle restoration."
+      />
+      <TimeLineElement
+        title="Prior to this self employment as a mechanic and panel beater."
+        subtitle="From 1972 to 1983 at Various locations"
+        desc="Covering a whole swathe of time as a painter / panel beater and mechanic. Mainly self employed but with long stretches of employment as foreman or chargehand at dealer franchise's. Even including a period as a workshop manager in Johanasburg SA."
+      />
+      <TimeLineElement
+        title="Motor Vehicle development and design."
+        subtitle="From 1961 to 1972 at various locations"
+        desc="Consolidating a whole lot of creative work developing and producing racing and road going cars, both on my own account and for Sarcon at Yeadon Leeds. Skills at this period were in GRP, welding painting and even a little aero work."
+      />
+    </div>
+
+    <div class="mb-5">
+      <div class="w-full text-3xl font-bold">Certifications</div>
+    </div>
+
+    <ul class="mx-6 mb-10 grid list-disc gap-2">
+      <li>
+        <a href="https://courses.leeds.ac.uk/i078/ecology-and-conservation-biology-mbiol-bsc" target="_blank"
+          >Ecology: (First)</a
+        >
+      </li>
+      <li>
+        <a href="" target="_blank"> City and Guilds Information Technology</a>
+      </li>
+      <li>
+        <a href="" target="_blank">Oxford Projects: Project Management.</a>
+      </li>
+    </ul>
+
+    <div class="mb-5">
+      <div class="w-full text-3xl font-bold">Skills</div>
+    </div>
+
+    <ul class="mx-6 list-disc columns-2 md:columns-5">
+      <li>English (Native)</li>
+      <li>JavaScript</li>
+      <li>C#</li>
+      <li>Python</li>
+      <li>XML</li>
+      <li>MS SQL</li>
+      <li>CSS</li>
+      <li>HTML</li>
+      <li>Astro</li>
+      <li>Bootstrap</li>
+      <li>Taildwind</li>
+      <li>JQuery</li>
+      <li>Git</li>
+      <li>VBA</li>
+      <li>Excel</li>
+      <li>BaseCamp</li>
+      <li>UI Design</li>
+      <li>WEB Design</li>
+      <li>Logo Design</li>
+      <li>Image Manipulation</li>
+      <li>Office Suite</li>
+    </ul>
   </div>
-
-  <div class="mb-10 text-justify">
-    This is so complicated to document as its been such a varied working life. But working backwards... Over ten years as a software engineer mainly focused in educational software development. Covering various programming
-    languages, frameworks, CMS and graphics engines. Experience in WEB design and development. Working with SQL Data Base systems, as well as design, normalization and migration. Also knowledge graphic design tools for image manipulation , User Interfaces design, Web sites, logos and other etc.
-  </div>
-
-  <div class="mb-5">
-    <div class="text-3xl w-full font-bold">Education</div>
-  </div>
-
-  <div class="time-line-container grid gap-4 mb-10">
-    <TimeLineElement
-      title="Ecology and Evolution"
-      subtitle="1993 to 1996 at Leeds University, West Yorkshire, UK"
-    />
-    <TimeLineElement
-      title="Access to HE"
-      subtitle="1992 to 1993 at Joseph Priestly College, Peel Street, Morley"
-    />
-  </div>
-
-  <div class="mb-5">
-    <div class="text-3xl w-full font-bold">Experience</div>
-  </div>
-
-  <div class="time-line-container mb-10">
-    <TimeLineElement
-      title="Senior Engineer, Full stack developer at Research Machines (RM plc)"
-      subtitle="From 1997 at Key Solutions, Otley, UK"
-      desc="Research Machines is a key player in the educational software market and at Otley we develped  the Integris system of school management systems. A multiplatform system that includes both school and Local Authority software. In addition to this I was influential in developing pupil assesment and curriculum solutions for both the UK and Western Australia. A wide spread of technology was in use far too extensive to fully document in such a fast changing scene as software development but to include MS SQL Server, VB, C#, VBA, Xml, Json, Java and Javascript."
-    />
-    <TimeLineElement
-      title="IT Biology Laboratory Teacher "
-      subtitle="From 1995 to 1997 at Joseph Priestly College, Morley and Rothwell"
-      desc="Provision of basic IT skills and support for the computer and biology laboratories at several of the Joseph Priestly sites."
-    />
-    <TimeLineElement
-      title="Now it starts to get complicated! Sub Contract Panel Beater Paint Sprayer."
-      subtitle="From 1983 to 1995 at GB Autos Staincliffe & others, UK"
-      desc="Accident repair, and repaints on cars and light commercial vehicles. With a smattering of classic vehicle restoration."
-    />
-    <TimeLineElement
-      title="Prior to this self employment as a mechanic and panel beater."
-      subtitle="From 1972 to 1983 at Various locations"
-      desc="Covering a whole swathe of time as a painter / panel beater and mechanic. Mainly self employed but with long stretches of employment as foreman or chargehand at dealer franchise's. Even including a period as a workshop manager in Johanasburg SA."
-    />
-    <TimeLineElement
-      title="Motor Vehicle development and design."
-      subtitle="From 1961 to 1972 at various locations"
-      desc="Consolidating a whole lot of creative work developing and producing racing and road going cars, both on my own account and for Sarcon at Yeadon Leeds. Skills at this period were in GRP, welding painting and even a little aero work."
-    />
-  </div>
-
-  <div class="mb-5">
-    <div class="text-3xl w-full font-bold">Certifications</div>
-  </div>
-
-  <ul class="list-disc mx-6 mb-10 grid gap-2">
-    <li>
-      <a href="https://courses.leeds.ac.uk/i078/ecology-and-conservation-biology-mbiol-bsc" target="_blank">Ecology: (First)</a>
-    </li>
-    <li>
-      <a href="" target="_blank"> City and Guilds Information Technology</a>
-    </li>
-    <li>
-      <a href="" target="_blank">Oxford Projects: Project Management.</a>
-    </li>
-  </ul>
-
-  <div class="mb-5">
-    <div class="text-3xl w-full font-bold">Skills</div>
-  </div>
-
-  <ul class="list-disc md:columns-5 columns-2 mx-6">
-    <li>English (Native)</li>
-    <li>JavaScript</li>
-    <li>C#</li>
-    <li>Python</li>
-    <li>XML</li>
-    <li>MS SQL</li>
-    <li>CSS</li>
-    <li>HTML</li>
-    <li>Astro</li>
-    <li>Bootstrap</li>
-    <li>Taildwind</li>
-    <li>JQuery</li>
-    <li>Git</li>
-    <li>VBA</li>
-    <li>Excel</li>
-    <li>BaseCamp</li>
-    <li>UI Design</li>
-    <li>WEB Design</li>
-    <li>Logo Design</li>
-    <li>Image Manipulation</li>
-    <li>Office Suite</li>
-  </ul>
 </BaseLayout>
