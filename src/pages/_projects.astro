@@ -9,6 +9,7 @@ const pageTitle = "Richards Projects";
 const allprojects = (await getCollection("projects")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
+
 ---
 
 <BaseLayout pageTitle={pageTitle}>
