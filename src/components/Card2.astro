@@ -21,39 +21,36 @@ import.meta.glob<{ default: ImageMetadata }>
 //import logoSrc from '../assets/img/astro.svg'
 
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**/*.{jpeg,jpg,png,gif,svg}')
-if (!images[imageSrc]) throw new Error(`"${imageSrc}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif,svg}"`);
+if (!images[imageSrc]) throw new Error(`"${imageSrc}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif,svg}"`)
 
 for (const path in images) {
   images[path]().then((mod) => {
     //console.log(path, mod)
   })
 }
-console.log('Image source: ' + imageSrc )
-console.log('Title: ' + title )
+console.log('Image source: ' + imageSrc)
+console.log('Title: ' + title)
 ---
 
 <div
-  class="card relative h-[100%] w-[100%] rounded-lg border border-gray-200 bg-slate-600 from-slate-400 to-slate-600 p-6 pt-3 shadow transition ease-in-out hover:scale-[101%] hover:bg-gradient-to-r hover:shadow-2xl dark:border-gray-700 dark:bg-gray-800"
+  class="card relative h-[100%] w-[100%] rounded-lg border border-slate-300 p-6 pt-3 shadow transition ease-in-out hover:scale-[101%] hover:shadow-2xl dark:border-gray-100"
 >
   <p class="float-right text-xs text-gray-400 hover:text-slate-800">Published: {pub_date}</p>
 
   <a href={url}>
     <h5 class="m-2 font-semibold tracking-tight text-gray-300 dark:text-white">{title}</h5>
 
-    <div class="flex my-3">
-
-      <Image src={images[imageSrc]()} alt={title} width="50" height="50" class="flex-none float-left"/>
+    <div class="my-3 flex">
+      <Image src={images[imageSrc]()} alt={title} width="50" height="50" class="float-left flex-none" />
 
       {
         badge && (
-          <p class="absolute right-0 mr-3 mt-3 flex-none inline-flex items-center rounded-lg shadow-sm shadow-fuchsia-500/50 bg-slate-600 px-2 py-1 text-xs font-medium text-indigo-300 ring-1 ring-inset ring-indigo-700/10">
+          <p class="absolute right-0 mr-3 mt-3 inline-flex flex-none items-center rounded-lg bg-slate-600 px-2 py-1 text-xs font-medium text-indigo-300 shadow-sm shadow-fuchsia-500/50 ring-1 ring-inset ring-indigo-700/10">
             {badge}
           </p>
         )
       }
-
     </div>
-   
 
     <p class="mb-3 pb-3 font-normal text-slate-500 dark:text-gray-100">{desc}</p>
 
@@ -73,8 +70,15 @@ console.log('Title: ' + title )
 
 <style>
   .card {
-    --base: 1.35; /* Handy multiplier for consistency across elements */
-    --background: rgb(71 85 105 / var(--tw-bg-opacity));
+    background: hsla(113, 6%, 27%, 1);
+
+    background: linear-gradient(135deg, hsla(113, 6%, 27%, 1) 30%, hsla(115, 6%, 42%, 1) 100%);
+
+    background: -moz-linear-gradient(135deg, hsla(113, 6%, 27%, 1) 30%, hsla(115, 6%, 42%, 1) 100%);
+
+    background: -webkit-linear-gradient(135deg, hsla(113, 6%, 27%, 1) 30%, hsla(115, 6%, 42%, 1) 100%);
+
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#434A42", endColorstr="#657064", GradientType=1 );
   }
 
   .card:is(:hover, :focus-within) {

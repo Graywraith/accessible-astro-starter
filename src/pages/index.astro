@@ -23,19 +23,20 @@ const last_projects = projects.slice(0, 4);
 <DefaultLayout title="Home">
 
   <!-- TODO change hero section -->
-  <Hero />
+  <!-- <Hero /> -->
 
   <section class="my-2">
     <div class="container">
       <h2 class="mb-7 mx-auto pl-7 italic text-2xl">Hey there👋</h2>
+      <img src="/src/assets/img/fo_Logo.png" class="float-right w-1/2" alt="">
       <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
         <section class="relative pr-4 lg:col-span-3 md:mb-10">
           <svg class="absolute h-full w-full overflow-visible">
             <defs>
               <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" style={{ stopColor: "#6b21a8", stopOpacity: 1 }}
+                <stop offset="0%" style={{ stopColor: "#cde2ca", stopOpacity: 1 }}
                 ></stop>
-                <stop offset="100%" style={{ stopColor: "#e879f9", stopOpacity: 1 }}
+                <stop offset="100%" style={{ stopColor: "#414840", stopOpacity: 1 }}
                 ></stop>
               </linearGradient>
             </defs>
@@ -47,8 +48,8 @@ const last_projects = projects.slice(0, 4);
           </svg>
           <p
             id="anim-p"
-            class="text-main px-5 text-white text-lg md:text-xl mx-auto mb-30 pb-12"
-          >
+            class="text-main px-5 text-white text-lg md:text-xl mx-auto mb-30 pb-12 col-start-1"
+          > 
             You've stumbled upon <span class="font-bold text-accent">Richard's</span
             > little corner of the internet, where creativity runs rampant and
             normal is just a setting on a washing machine.<br /><br />
@@ -63,6 +64,7 @@ const last_projects = projects.slice(0, 4);
             continue anew here and keep my legacy site live. So here goes...
           </p>
         </section>
+       
       </div>
     </div>
   </section>
@@ -138,6 +140,11 @@ const last_projects = projects.slice(0, 4);
 </DefaultLayout>
 
 <style>
+  body{
+    background-color: #434a42;
+  }
+  
+
   #border-path {
     animation: draw 1s forwards 1s ease-out;
   }
@@ -156,10 +163,9 @@ const last_projects = projects.slice(0, 4);
 
     if (textMain && path) {
       path.setAttribute(
-        "d",
+        "d", 
         `M0,0 V${textMain.offsetHeight} H${textMain.offsetWidth} v${
-          textMain.offsetHeight / 6
-        }`
+          textMain.offsetHeight / 10} h${textMain.offsetWidth / 2}` 
       );
       const pathLength = path.getTotalLength();
 
