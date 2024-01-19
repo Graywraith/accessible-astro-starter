@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/DefaultLayout.astro";
 import HorizontalCard from "../components/HorizontalCard.astro";
 import HorizontalCardEx from  "../components/HorizontalCard.astro";
+import { IMG_ASSETS_BASE_PATH } from "../config";
 
 ---
 
@@ -71,7 +72,7 @@ import HorizontalCardEx from  "../components/HorizontalCard.astro";
 
       <HorizontalCard
       title="So Why Bother?"
-      img="/assets/astro.svg"
+      imgSrc={IMG_ASSETS_BASE_PATH + "astro.svg"}
       desc="So the primary reason in starting was to continue my profile site. However; and its a big however my original site was rapidly becoming unwieldly, a birds nest knot of repeated and redundant code. On review and relection I did not want to ditch all the work and start again so I investigated modern development frameworks suited to developing a blog. Astro fitted the bill perfctly and I highly recomend it."
       url="#"
       badge="INFO"
@@ -80,7 +81,7 @@ import HorizontalCardEx from  "../components/HorizontalCard.astro";
 
     <HorizontalCardEx
       title="About Me - Genetic"
-      img="/assets/dna.svg"
+      imgSrc={IMG_ASSETS_BASE_PATH + "dna.svg"}
       desc="Well I wanted to include a little bit of genetic history, just because its so interesting. Lets start in the very ancient past with how the hell did I get here? Amazing isn't it to think that because here I am it can only be the result of all those who have gone before: from the migrations out of Africa, through the ice ages and the black death and on and on - survivors all." 
       desc2="So briefly my genetic breakdown (May 2023)"
       list = "British and Irish: 83.7% ,French and German: 12.4%, Scandanavian: 1.1%, Northwestern European: 2.8%  "
