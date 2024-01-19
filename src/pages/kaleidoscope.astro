@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../layouts/DefaultLayout.astro'
 import HorizontalCard from '../components/HorizontalCard.astro'
+import { IMG_ASSETS_BASE_PATH } from "../config.ts";
+import { dynamicProperty } from 'solid-js/web';
 ---
 
 <BaseLayout title="Ideas and Perspectives" description="Ideas and perspectives.">
@@ -18,7 +20,8 @@ import HorizontalCard from '../components/HorizontalCard.astro'
 
       <HorizontalCard
         title="Taking the long view"
-        imgsrc="../../src/assets/img/dna.svg"
+        imgSrc="dna.svg"
+        imgSrc={IMG_ASSETS_BASE_PATH + "dna.svg"}
         desc="Taking the long, long view of our history. How did you come to be here, what set of circumstances led to the here and now? Click for my take on this."
         badge="DNA"
         url="/longview"
@@ -29,7 +32,7 @@ import HorizontalCard from '../components/HorizontalCard.astro'
 
       <HorizontalCard
         title="Start at the begining"
-        imgsrc="../../src/assets/img/oak.svg"
+        imgSrc={IMG_ASSETS_BASE_PATH + "oak.svg"}
         desc="Start at the begining. My Fossil Oak site a biography and historical record of all the years up to the fish shop."
         url="https://fossiloak.co.uk/lth1.html"
       />
@@ -38,7 +41,7 @@ import HorizontalCard from '../components/HorizontalCard.astro'
 
       <HorizontalCard
         title="The meaning of the surname"
-        imgsrc="../../src/assets/img/druid.svg"
+        imgSrc={IMG_ASSETS_BASE_PATH + "druid.svg"}
         desc="So where exactly does the surname Noake come from?."
         url="/surname"
         badge="INFO"
@@ -48,7 +51,7 @@ import HorizontalCard from '../components/HorizontalCard.astro'
 
       <HorizontalCard
         title="My Maker Credentials"
-        imgsrc="../../src/assets/img/activity.svg"
+        imgSrc={IMG_ASSETS_BASE_PATH + "activity.svg"}
         desc="So once I get around to it here I will link to my latest and greatest makes. For now look at my Projets page"
         url="/projects/"
       />
