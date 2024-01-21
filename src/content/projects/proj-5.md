@@ -19,4 +19,4 @@ has_link: true
 <br/>
 <p class="text-lg">What was intended as a simple quick easy update to my live site as version 3 of Astro became more a rather more extensive project. This was due to the decision to update all the dependence's at the same time, mainly I think the Tailwind CSS version which had a major update around this time.
 </p>
-<p>So... start again, display at least content copied over. This project, or at least this part of the project was / is down to getting the project content section working! More to come.<p> 
+<p>So... start again, display at least content copied over. This project, or at least this part of the project was / is down to getting the project content section working! More to come.<p>

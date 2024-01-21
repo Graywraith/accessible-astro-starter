@@ -25,4 +25,3 @@ I figure my latest projects are really all to do with this website. Creation of 
 The majority of the content is now coming via Markdown files, with display handled by re-usable components. So even for a personal blog far more productive.
 <br/><br/>
 Tags are implemented for the blogs section but it would be nice to add that for projects. Also to add is a methodology for theming.
-

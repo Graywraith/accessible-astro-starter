@@ -23,6 +23,6 @@ tags : ["Nature","Garden"]
 <br/><br/>
 A Garden is never finished, it evolves over time.
 <br/><br/>
-<img title="Garden View" alt="Tomato progress in late may 2023" src="../src/assets/img/garden231.png" width="75%">
+![Our garden in 2023.](../../assets/img/garden231.JPG)
 <br/>
 A quick look at the progress of tomatoes and lettuce in late may 2023.

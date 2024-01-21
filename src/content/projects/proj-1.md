@@ -12,6 +12,7 @@ badge: "Woodwork"
 checkoutUrl: ""
 image: "birdTable.png"
 tags : ["Woodwork"]
+
 ---
 
 ## Building a simple but stylish bird table and nest box
@@ -19,7 +20,7 @@ tags : ["Woodwork"]
 So as our many nest boxes have mostly been occupied this year so I thought a handy little project to use up offcuts could be to put together a simple but stylish nest-box / bird-table to pass on to Jonathan. This is the result.
 <br/><br/>
 
-<img src="../../assets/img/birdTable.png" alt="Installed Basic Birdbox and Table" class="w-64 float-left"/> 
+![The simple bird table.](../../assets/img/birdTable.png)
 
 <br/><br/>
 
