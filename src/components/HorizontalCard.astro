@@ -36,7 +36,7 @@ if (!images[imgSrc]) throw new Error(`"${imgSrc}" does not exist in glob: "'/src
 
     <div class="hero-content md:flex-row">
       <!-- {img && <img src={img} alt={title} class="max-w-full md:max-w-[13rem] rounded-lg" />} -->
-      {imgSrc && <Image src={imgSrc} alt={title} width={150} height={150} class="max-w-full  md:max-w-[15rem] h-32 rounded-lg float-right p-3" />}
+      {imgSrc && <Image src={images[imgSrc]()} alt={title} width={150} height={150} class="max-w-full  md:max-w-[15rem] h-32 rounded-lg float-right p-3" />}
       <div class="grow w-full">
         <h1 class="text-xl text-nowrap">
           {title}
