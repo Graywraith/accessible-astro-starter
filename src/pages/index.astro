@@ -3,6 +3,7 @@ import DefaultLayout from '../layouts/DefaultLayout.astro'
 import Hero from '../components/Hero.astro'
 import ContentMedia from '../components/ContentMedia.astro'
 import { IMG_ASSETS_BASE_PATH } from "../config.ts";
+import { Image } from 'astro:assets';
 import Card from '../components/Card2.astro'
 
 import { getCollection } from "astro:content"
@@ -18,6 +19,8 @@ const projects = (await getCollection("projects")).sort(
 const last_posts = posts.slice(0, 4);
 
 const last_projects = projects.slice(0, 4);
+
+import logoSrc from '../assets/img/fo_Logo.png'
 ---
 
 <DefaultLayout title="Home">
@@ -28,7 +31,9 @@ const last_projects = projects.slice(0, 4);
   <section class="my-2">
     <div class="container">
       <h2 class="mb-7 mx-auto pl-7 italic text-2xl">Hey there👋</h2>
-      <img src="/src/assets/img/fo_Logo.png" class="float-right w-1/2" alt="">
+
+      <Image src={logoSrc} class="float-right w-1/2" alt="fossil Oak"/>
+
       <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
         <section class="relative pr-4 lg:col-span-3 md:mb-10">
           <svg class="absolute h-full w-full overflow-visible">
