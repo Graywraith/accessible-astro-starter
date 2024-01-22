@@ -4,7 +4,7 @@ author: Richard Noake
 description: "A few unrelated random thoughts!"
 pubDate: "April 13 2023"
 updatedDate: "Jan 10 2024"
-image: ""
+image: "astro.svg"
 badge: "Thoughts"
 has_link: false
 custom_link_label: ""

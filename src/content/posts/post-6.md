@@ -4,7 +4,7 @@ author: Richard Noake
 description: "So I am putting a lot of effort into this but why?"
 pubDate: "Mar 12 2023"
 updatedDate: "Jan 10 2024"
-image: "logo.svg"
+image: "astro.svg"
 badge: "Narrative"
 has_link: false
 custom_link_label: ""
