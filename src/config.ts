@@ -3,5 +3,5 @@
 
 export const SITE_TITLE = 'Noake, Richard';
 export const SITE_DESCRIPTION = 'The personal website for Richard Noake. My latest online presence and blog.  With information about the surname Noake, my interests and history.';
-export const SITE_VERSION = '1.01.14';
+export const SITE_VERSION = '1.01.15';
 export const IMG_ASSETS_BASE_PATH = '/src/assets/img/';

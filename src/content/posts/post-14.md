@@ -4,7 +4,7 @@ author: Richard Noake
 description: To speed up blog creation I created a snippet.
 pubDate: "May 28 2023"
 updatedDate: "Jan 10 2024"
-image: 'vs-code.svg'
+image: "vs-code.svg"
 badge: Development
 has_link: false
 custom_link_label: ""
