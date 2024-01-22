@@ -4,7 +4,7 @@ author: Richard Noake
 description: A more detailed look at the AOMC paths
 pubDate: "Aug 16 2023"
 updatedDate: "Jan 10 2024"
-image: "cloud-1.svg"
+image: "astro.svg"
 badge: AMOC
 tags: ["Climate Change","AMOC","Gulf Stream"]
 
