@@ -4,7 +4,7 @@ author: Richard Noake
 description: Ecology is Gardening and Gardening is Ecology
 pubDate: "Jun 05 2023"
 updatedDate: "Jan 10 2024"
-image: "infinity.svg"
+image: "astro.svg"
 badge: Ecology
 has_link: false
 custom_link_label: ""
