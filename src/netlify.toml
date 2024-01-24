@@ -1,2 +1,2 @@
- [build.environment] NODE_OPTIONS=--max-old-space-size=$(expr $(echo "$(free -m)" | awk '/^Mem:/ {print $2}') - 512)
+ [build.environment] NODE_OPTIONS=-max-old-space-size=5120
  
